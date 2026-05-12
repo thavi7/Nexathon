@@ -237,9 +237,8 @@ docker-compose up
 
 - Real-Time Chat
 - Live Coding Rooms
+- Frontend Integration
 - AI-Based Team Matching
-- Payment Gateway Integration
-- WebSocket Notifications
 - Event Analytics Dashboard
 
 ---
@@ -256,12 +255,7 @@ Contributions are welcome.
 
 ---
 
-# 📄 License
-
-This project is licensed under the MIT License.
-
----
 
 # 👨‍💻 Author
-
+Abhisek Pal Choudhury
 Developed using Spring Boot & PostgreSQL.
