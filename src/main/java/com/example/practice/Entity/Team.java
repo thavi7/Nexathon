@@ -1,14 +1,13 @@
-package com.example.practice.Entity;
+package com.example.practice.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Team {
@@ -16,6 +15,7 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     private String teamName;
 
     @ManyToOne
@@ -23,5 +23,8 @@ public class Team {
 
     @ManyToMany
     private List<User>members;
+
+    @OneToMany(mappedBy = "team")
+    private List<Submission> submission;
 
 }

@@ -1,6 +1,7 @@
 package com.example.practice.service;
 
 import com.example.practice.dto.AddUserDTO;
+import com.example.practice.dto.TeamDTO;
 import com.example.practice.dto.UserDTO;
 
 import java.util.List;
@@ -13,4 +14,7 @@ public interface UserService {
     UserDTO deleteUSer(Long id);
     UserDTO updateUser(Long id,AddUserDTO addUserDTO);
     UserDTO updatePartialUser(Long id, Map<String, Object> changes);
+
+
+    List<TeamDTO> getTeamsOfAnUser(Long id);
 }

@@ -1,7 +1,10 @@
 package com.example.practice.dto;
 
 
+import com.example.practice.entity.type.RoleType;
 import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 @Data
@@ -19,5 +22,6 @@ public class AddUserDTO {
     @Column(nullable = false)
     private String password;
     @Column(updatable = false)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 }

@@ -1,17 +1,16 @@
-package com.example.practice.Entity;
+package com.example.practice.entity;
 
-import com.example.practice.Entity.type.EventMode;
+import com.example.practice.entity.type.EventMode;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Event {
@@ -38,4 +37,10 @@ public class Event {
 
     @OneToMany(mappedBy = "event")
     private List<Team> team;
+
+    @OneToMany(mappedBy = "event",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Registration>registrations;
+
+    @OneToMany(mappedBy = "event")
+    private List<Submission>submissions;
 }

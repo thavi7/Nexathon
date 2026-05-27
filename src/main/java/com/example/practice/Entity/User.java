@@ -1,18 +1,17 @@
-package com.example.practice.Entity;
+package com.example.practice.entity;
 
+import com.example.practice.entity.type.RoleType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(
@@ -36,18 +35,22 @@ public class User {
 
     @NonNull
     @Column(nullable = false)
-    @Size(max = 8, message = "Password must be less than 5 Char..")
+    @Size(max = 8, message = "Password must be less than 9 Char..")
     private String password;
 
     @Column(updatable = false)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDate createdAt;
 
-    @ManyToMany(mappedBy = "members")
+    @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
     private List<Team> teams;
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Registration>registrations;
 
 }
 

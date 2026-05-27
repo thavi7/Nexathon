@@ -1,7 +1,9 @@
 package com.example.practice.service;
 
 import com.example.practice.dto.AddUserDTO;
-import com.example.practice.Entity.User;
+import com.example.practice.dto.TeamDTO;
+import com.example.practice.entity.Team;
+import com.example.practice.entity.User;
 import com.example.practice.Repository.UserRepo;
 import com.example.practice.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
@@ -73,4 +75,16 @@ public class UserServiceImp implements UserService {
         UserDTO userDTO = modelMapper.map(save,UserDTO.class);
         return userDTO;
     }
+
+
+
+    @Override
+    public List<TeamDTO> getTeamsOfAnUser(Long id) {
+        List<Team> teamsOfAnUser = userRepo.getTeamsOfAnUser(id);
+        List<TeamDTO> teamDTOS = teamsOfAnUser.stream().map(TEAM ->modelMapper.map(TEAM,TeamDTO.class))
+                .toList();
+        return teamDTOS;
+    }
+
+
 }

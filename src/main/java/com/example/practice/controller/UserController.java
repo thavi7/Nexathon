@@ -2,6 +2,7 @@ package com.example.practice.controller;
 
 
 import com.example.practice.dto.AddUserDTO;
+import com.example.practice.dto.TeamDTO;
 import com.example.practice.dto.UserDTO;
 import com.example.practice.service.UserService;
 import jakarta.validation.Valid;
@@ -44,4 +45,14 @@ public class UserController {
     ResponseEntity<UserDTO> updatePartialUser(@PathVariable Long id, @Valid @RequestBody Map<String, Object> changes){
         return new ResponseEntity<>( userService.updatePartialUser(id,changes), HttpStatus.CREATED);
     }
+
+
+
+
+    @GetMapping("/{id}/teams")
+    ResponseEntity<List<TeamDTO>>getTeamsOfAnUser(@PathVariable Long id){
+        return new ResponseEntity<>(userService.getTeamsOfAnUser(id),HttpStatus.OK);
+    }
+
+
 }

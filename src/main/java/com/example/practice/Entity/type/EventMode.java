@@ -1,4 +1,4 @@
-package com.example.practice.Entity.type;
+package com.example.practice.entity.type;
 
 public enum EventMode {
     ONLINE,
