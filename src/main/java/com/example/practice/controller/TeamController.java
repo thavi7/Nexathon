@@ -1,9 +1,6 @@
 package com.example.practice.controller;
 
-import com.example.practice.dto.AddTeamDTO;
-import com.example.practice.dto.AddUserDTO;
-import com.example.practice.dto.TeamDTO;
-import com.example.practice.dto.UserDTO;
+import com.example.practice.dto.*;
 import com.example.practice.service.TeamService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/teams")
+@RequestMapping("/team")
 @RestController
 public class TeamController {
 
@@ -41,9 +38,7 @@ public class TeamController {
     }
 
 
-
-
-    @GetMapping("/{id}/users")
+    @GetMapping("/{id}/user")
     ResponseEntity<List<UserDTO>> getAllUsersOfTeam(@PathVariable Long id){
         return new ResponseEntity<>( teamService.getAllUsersOfTeam(id), HttpStatus.OK);
     }
@@ -56,6 +51,11 @@ public class TeamController {
     @DeleteMapping("/{teamid}/user/{userid}")
     ResponseEntity<TeamDTO> removeUserFromTeam(@PathVariable Long teamid, @PathVariable Long userid){
         return new ResponseEntity<>( teamService.removeUserFromTeam(teamid,userid), HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/{id}/reg")
+    ResponseEntity<List<RegistrationDTO>>getRegOfAteam(@PathVariable Long id){
+        return new ResponseEntity<>(teamService.getRegOfAteam(id),HttpStatus.OK);
     }
 
 }

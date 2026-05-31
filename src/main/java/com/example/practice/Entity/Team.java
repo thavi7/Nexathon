@@ -3,6 +3,7 @@ package com.example.practice.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,10 +22,14 @@ public class Team {
     @ManyToOne
     private Event event;
 
+    @OneToMany(mappedBy = "team",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Registration>registrations;
+
     @ManyToMany
     private List<User>members;
 
     @OneToMany(mappedBy = "team")
     private List<Submission> submission;
+
 
 }

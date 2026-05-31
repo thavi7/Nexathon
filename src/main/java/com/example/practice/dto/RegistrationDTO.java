@@ -19,7 +19,7 @@ public class RegistrationDTO {
 
     private StatusType status;
 
-    private String username;
+    private String teamname;
 
     private String eventname;
 }

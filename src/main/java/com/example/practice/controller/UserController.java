@@ -2,6 +2,7 @@ package com.example.practice.controller;
 
 
 import com.example.practice.dto.AddUserDTO;
+import com.example.practice.dto.RegistrationDTO;
 import com.example.practice.dto.TeamDTO;
 import com.example.practice.dto.UserDTO;
 import com.example.practice.service.UserService;
@@ -48,11 +49,11 @@ public class UserController {
 
 
 
-
-    @GetMapping("/{id}/teams")
+    @GetMapping("/{id}/team")
     ResponseEntity<List<TeamDTO>>getTeamsOfAnUser(@PathVariable Long id){
         return new ResponseEntity<>(userService.getTeamsOfAnUser(id),HttpStatus.OK);
     }
+
 
 
 }

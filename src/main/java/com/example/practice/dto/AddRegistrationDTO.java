@@ -17,6 +17,6 @@ import java.time.LocalDateTime;
 @ToString
 public class AddRegistrationDTO {
 
-   private Long user_id;
+   private Long team_id;
    private Long event_id;
 }

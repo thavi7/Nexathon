@@ -40,14 +40,5 @@ public class RegistrationController {
         return new ResponseEntity<>( regService.deleteReg(id), HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/user/{id}/")
-    ResponseEntity<List<RegistrationDTO>> getAllReg(@PathVariable Long id){
-        return new ResponseEntity<>( regService.getAllRegOfAnUser(id), HttpStatus.OK);
-    }
-
-    @GetMapping("/event/{id}/")
-    ResponseEntity<List<RegistrationDTO>> getAllRegOfAnEvent(@PathVariable Long id){
-        return new ResponseEntity<>( regService.getAllRegOfAnEvent(id), HttpStatus.OK);
-    }
 
 }

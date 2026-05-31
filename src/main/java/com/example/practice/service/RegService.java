@@ -12,6 +12,4 @@ public interface RegService {
         RegistrationDTO createReg(AddRegistrationDTO addRegistrationDTO);
         RegistrationDTO deleteReg(Long id);
 
-        List<RegistrationDTO>getAllRegOfAnUser(Long userid);
-        List<RegistrationDTO>getAllRegOfAnEvent(Long eventid);
 }

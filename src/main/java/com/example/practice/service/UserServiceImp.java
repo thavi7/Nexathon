@@ -1,7 +1,9 @@
 package com.example.practice.service;
 
 import com.example.practice.dto.AddUserDTO;
+import com.example.practice.dto.RegistrationDTO;
 import com.example.practice.dto.TeamDTO;
+import com.example.practice.entity.Registration;
 import com.example.practice.entity.Team;
 import com.example.practice.entity.User;
 import com.example.practice.Repository.UserRepo;
@@ -85,6 +87,7 @@ public class UserServiceImp implements UserService {
                 .toList();
         return teamDTOS;
     }
+
 
 
 }

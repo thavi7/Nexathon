@@ -16,4 +16,5 @@ public interface UserRepo extends JpaRepository<User,Long> {
         @Query("SELECT DISTINCT t FROM Team t LEFT JOIN t.members u WHERE u.id=:id")
         List<Team> getTeamsOfAnUser(@Param("id") Long user_id);
 
+
 }

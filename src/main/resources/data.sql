@@ -1,10 +1,10 @@
-INSERT INTO "Participant"
-(id, name, email, password, role, created_at)
-VALUES
-    (1, 'Abhisek', 'abhisek@gmail.com', 'pass123', 'USER', CURRENT_DATE),
-    (2, 'Rahul', 'rahul@gmail.com', 'rahul12', 'USER', CURRENT_DATE),
-    (3, 'Sneha', 'sneha@gmail.com', 'sneha12', 'USER', CURRENT_DATE),
-    (4, 'Admin', 'admin@gmail.com', 'admin123', 'ADMIN', CURRENT_DATE);
+-- INSERT INTO participant
+-- (id, name, email, password, role, created_at)
+-- VALUES
+--     (1, 'Abhisek', 'abhisek@gmail.com', 'pass123', 'USER', CURRENT_DATE),
+--     (2, 'Rahul', 'rahul@gmail.com', 'rahul12', 'USER', CURRENT_DATE),
+--     (3, 'Sneha', 'sneha@gmail.com', 'sneha12', 'USER', CURRENT_DATE),
+--     (4, 'Admin', 'admin@gmail.com', 'admin123', 'ADMIN', CURRENT_DATE);
 
 
 
@@ -20,9 +20,9 @@ VALUES
 
 
 INSERT INTO team
-(id, team_name, event_id)
+(id, team_name)
 VALUES
-    (1, 'Code Warriors', 1),
-    (2, 'Bug Hunters', 1);
+    (1, 'Code Warriors'),
+    (2, 'Bug Hunters');
 
 

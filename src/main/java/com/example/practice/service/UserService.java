@@ -1,6 +1,7 @@
 package com.example.practice.service;
 
 import com.example.practice.dto.AddUserDTO;
+import com.example.practice.dto.RegistrationDTO;
 import com.example.practice.dto.TeamDTO;
 import com.example.practice.dto.UserDTO;
 
