@@ -27,7 +27,19 @@ public class TeamServiceImp implements TeamService{
     @Override
     public List<TeamDTO> getAll() {
         List<Team> teams= teamRepo.findAll();
-        List<TeamDTO> teamDTOList = teams.stream().map(TEAM ->modelMapper.map(TEAM,TeamDTO.class))
+        List<TeamDTO> teamDTOList = teams.stream()
+                .map(team -> {
+                    TeamDTO dto = modelMapper.map(team, TeamDTO.class);
+
+                    dto.setMemberNames(
+                            team.getMembers()
+                                    .stream()
+                                    .map(User::getName)
+                                    .toList()
+                    );
+
+                    return dto;
+                })
                 .toList();
         return teamDTOList;
     }
@@ -36,6 +48,12 @@ public class TeamServiceImp implements TeamService{
     public TeamDTO getById(Long id) {
         Team team = teamRepo.findById(id).orElseThrow(()->new IllegalArgumentException("Team not found"));
         TeamDTO map = modelMapper.map(team, TeamDTO.class);
+        map.setMemberNames(
+                team.getMembers()
+                        .stream()
+                        .map(User::getName)
+                        .toList()
+        );
         return map;
     }
 
@@ -51,6 +69,12 @@ public class TeamServiceImp implements TeamService{
         Team team = teamRepo.findById(id).orElseThrow(()->new IllegalArgumentException("Team not found"));
         teamRepo.delete(team);
         TeamDTO delteam = modelMapper.map(team,TeamDTO.class);
+        delteam.setMemberNames(
+                team.getMembers()
+                        .stream()
+                        .map(User::getName)
+                        .toList()
+        );
         return delteam;
     }
 
@@ -80,6 +104,12 @@ public class TeamServiceImp implements TeamService{
         user.getTeams().add(team);
 
         TeamDTO teamDTO = modelMapper.map(team, TeamDTO.class);
+        teamDTO.setMemberNames(
+                team.getMembers()
+                        .stream()
+                        .map(User::getName)
+                        .toList()
+        );
         return teamDTO;
 
     }
@@ -96,6 +126,12 @@ public class TeamServiceImp implements TeamService{
         user.getTeams().remove(team);
 
         TeamDTO teamDTO = modelMapper.map(team, TeamDTO.class);
+        teamDTO.setMemberNames(
+                team.getMembers()
+                        .stream()
+                        .map(User::getName)
+                        .toList()
+        );
         return teamDTO;
     }
 

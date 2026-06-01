@@ -1,10 +1,10 @@
--- INSERT INTO participant
--- (id, name, email, password, role, created_at)
--- VALUES
---     (1, 'Abhisek', 'abhisek@gmail.com', 'pass123', 'USER', CURRENT_DATE),
---     (2, 'Rahul', 'rahul@gmail.com', 'rahul12', 'USER', CURRENT_DATE),
---     (3, 'Sneha', 'sneha@gmail.com', 'sneha12', 'USER', CURRENT_DATE),
---     (4, 'Admin', 'admin@gmail.com', 'admin123', 'ADMIN', CURRENT_DATE);
+INSERT INTO participant
+(id, name, email, password, role, created_at)
+VALUES
+    (1, 'Abhisek', 'abhisek@gmail.com', 'pas123', 'PARTICIPANT', CURRENT_DATE),
+    (2, 'Rahul', 'rahul@gmail.com', 'rul12', 'PARTICIPANT', CURRENT_DATE),
+    (3, 'Sneha', 'sneha@gmail.com', 'snea12', 'ORGANIZER', CURRENT_DATE),
+    (4, 'Admin', 'admin@gmail.com', 'adin123', 'ADMIN', CURRENT_DATE);
 
 
 

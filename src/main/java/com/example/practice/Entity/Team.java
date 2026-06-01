@@ -19,8 +19,6 @@ public class Team {
     @NonNull
     private String teamName;
 
-    @ManyToOne
-    private Event event;
 
     @OneToMany(mappedBy = "team",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Registration>registrations;

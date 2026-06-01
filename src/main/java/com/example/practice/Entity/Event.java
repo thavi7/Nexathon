@@ -35,9 +35,6 @@ public class Event {
     private String location;
 
 
-    @OneToMany(mappedBy = "event")
-    private List<Team> team;
-
     @OneToMany(mappedBy = "event",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Registration>registrations;
 
