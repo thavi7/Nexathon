@@ -65,6 +65,17 @@ public class RegServiceImp implements RegService{
     public RegistrationDTO createReg(AddRegistrationDTO addRegistrationDTO) {
         Team team = teamRepository.findById(addRegistrationDTO.getTeam_id()).orElseThrow();
         Event event = eventRepository.findById(addRegistrationDTO.getEvent_id()).orElseThrow();
+
+        boolean alreadyRegistered = registrationRepository.findAll()
+                .stream()
+                .anyMatch(reg ->
+                        reg.getTeam().getId().equals(team.getId()) &&
+                                reg.getEvent().getId().equals(event.getId()));
+
+        if (alreadyRegistered) {
+            throw new RuntimeException("Team already registered for this event");
+        }
+
         Registration registration=new Registration();
         registration.setTeam(team);
         registration.setEvent(event);

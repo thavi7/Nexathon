@@ -135,10 +135,31 @@ public class TeamServiceImp implements TeamService{
         return teamDTO;
     }
 
+
+    private RegistrationDTO convertToDTO(Registration reg) {
+
+        RegistrationDTO dto = new RegistrationDTO();
+
+        dto.setId(reg.getId());
+        dto.setRegisteredAt(reg.getRegisteredAt());
+        dto.setStatus(reg.getStatus());
+
+        if (reg.getTeam() != null) {
+            dto.setTeamname(reg.getTeam().getTeamName());
+        }
+
+        if (reg.getEvent() != null) {
+            dto.setEventname(reg.getEvent().getTitle());
+        }
+
+        return dto;
+    }
+
     @Override
     public List<RegistrationDTO> getRegOfAteam(Long teamId) {
             List<Registration> registrationOfAnUser = registrationRepository.getRegOfAteam(teamId);
-            List<RegistrationDTO> registrationDTOS = registrationOfAnUser.stream().map(REG ->modelMapper.map(REG,RegistrationDTO.class))
+            List<RegistrationDTO> registrationDTOS = registrationOfAnUser.stream()
+                    .map(this::convertToDTO)
                     .toList();
             return registrationDTOS;
 
