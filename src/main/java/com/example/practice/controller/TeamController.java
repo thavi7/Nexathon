@@ -53,10 +53,14 @@ public class TeamController {
         return new ResponseEntity<>( teamService.removeUserFromTeam(teamid,userid), HttpStatus.NO_CONTENT);
     }
 
-    //not working...
     @GetMapping("/{id}/reg")
     ResponseEntity<List<RegistrationDTO>>getRegOfAteam(@PathVariable Long id){
         return new ResponseEntity<>(teamService.getRegOfAteam(id),HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/sub")
+    ResponseEntity<List<SubmissionDTO>> getAllsubmissionOfaTeam(@PathVariable Long id){
+        return new ResponseEntity<>( teamService.getAllsubmissionOfaTeam(id), HttpStatus.OK);
     }
 
 }

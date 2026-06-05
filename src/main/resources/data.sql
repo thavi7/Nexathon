@@ -15,14 +15,24 @@ VALUES
      CURRENT_DATE, CURRENT_DATE + 2, 'ONLINE', 'Discord'),
 
     (2, 'Spring Boot Workshop', 'Backend development event',
-     CURRENT_DATE, CURRENT_DATE + 1, 'OFFLINE', 'Kolkata');
+     CURRENT_DATE, CURRENT_DATE + 1, 'OFFLINE', 'Kolkata'),
 
+    (3, 'AI Innovation Challenge', 'Build innovative AI-powered applications',
+    CURRENT_DATE, CURRENT_DATE + 3, 'ONLINE', 'Zoom'),
+
+    (4, 'Web Development Sprint', 'Frontend and backend web development competition',
+     CURRENT_DATE, CURRENT_DATE + 2, 'OFFLINE', 'Bangalore'),
+
+    (5, 'Cloud Computing Hackfest', 'Develop scalable cloud-native solutions',
+     CURRENT_DATE, CURRENT_DATE + 4, 'ONLINE', 'Microsoft Teams');
 
 
 INSERT INTO team
 (id, team_name)
 VALUES
     (1, 'Code Warriors'),
-    (2, 'Bug Hunters');
-
+    (2, 'Bug Hunters'),
+    (3, 'Byte Masters'),
+    (4, 'Algo Titans'),
+    (5, 'Tech Ninjas');
 

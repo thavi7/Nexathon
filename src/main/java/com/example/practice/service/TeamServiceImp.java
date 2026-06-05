@@ -1,10 +1,12 @@
 package com.example.practice.service;
 
 import com.example.practice.Repository.RegistrationRepository;
+import com.example.practice.Repository.SubmissionRepository;
 import com.example.practice.Repository.TeamRepository;
 import com.example.practice.Repository.UserRepo;
 import com.example.practice.dto.*;
 import com.example.practice.entity.Registration;
+import com.example.practice.entity.Submission;
 import com.example.practice.entity.Team;
 import com.example.practice.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +25,7 @@ public class TeamServiceImp implements TeamService{
     private final UserRepo userRepo;
     private final ModelMapper modelMapper;
     private final RegistrationRepository registrationRepository;
+    private final SubmissionRepository submissionRepository;
 
     @Override
     public List<TeamDTO> getAll() {
@@ -162,6 +165,16 @@ public class TeamServiceImp implements TeamService{
                     .map(this::convertToDTO)
                     .toList();
             return registrationDTOS;
+
+    }
+
+    @Override
+    public List<SubmissionDTO> getAllsubmissionOfaTeam(Long id) {
+            List<Submission> submission = submissionRepository.findByTeamId(id);
+            List<SubmissionDTO> submissionDTO = submission.stream().map(SUB ->modelMapper.map(SUB, SubmissionDTO.class))
+                    .toList();
+
+            return submissionDTO;
 
     }
 }

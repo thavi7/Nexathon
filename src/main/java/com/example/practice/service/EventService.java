@@ -13,4 +13,8 @@ public interface EventService {
     EventDTO updateEvent(Long id,AddEventDTO addEventDTO);
 
     TeamEventDTO getTeamsOfEventById(Long id);
+
+    List<SubmissionDTO> getAllsubmissionOfanEvent(Long id);
+
+    List<LeaderboardDTO> getLeaderBoardOfanEvent(Long id);
 }

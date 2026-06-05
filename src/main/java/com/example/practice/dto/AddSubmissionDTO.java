@@ -1,20 +1,19 @@
 package com.example.practice.dto;
 
-import jakarta.persistence.Column;
-import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
-
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SubmissionDTO {
-    private Long id;
+public class AddSubmissionDTO {
 
-    private Long teamID;
+    private Long teamId;
 
     private Long eventId;
 
@@ -26,7 +25,4 @@ public class SubmissionDTO {
 
     private String description;
 
-    private Integer score;
-
-    private LocalDateTime submittedAt;
 }

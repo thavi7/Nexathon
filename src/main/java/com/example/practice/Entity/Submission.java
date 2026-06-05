@@ -17,7 +17,6 @@ public class Submission {
     private Long id;
 
     @NonNull
-    @Column(unique = true,nullable = false)
     private String projectTitle;
 
     @NonNull

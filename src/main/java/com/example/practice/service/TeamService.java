@@ -14,4 +14,6 @@ public interface TeamService {
     TeamDTO addUserToTeam(Long teamId, Long userId);
     TeamDTO removeUserFromTeam(Long teamId, Long userId);
     List<RegistrationDTO>getRegOfAteam(Long teamId);
+
+    List<SubmissionDTO> getAllsubmissionOfaTeam(Long id);
 }

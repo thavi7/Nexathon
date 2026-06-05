@@ -47,4 +47,15 @@ public class EventController {
     ResponseEntity<TeamEventDTO> getTeamsOfEventById(@PathVariable Long id){
         return new ResponseEntity<>( eventService.getTeamsOfEventById(id), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/sub")
+    ResponseEntity<List<SubmissionDTO>> getAllsubmissionOfanEvent(@PathVariable Long id){
+        return new ResponseEntity<>( eventService.getAllsubmissionOfanEvent(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/leaderboard")
+    ResponseEntity<List<LeaderboardDTO>> getLeaderBoardOfanEvent(@PathVariable Long id){
+        return new ResponseEntity<>( eventService.getLeaderBoardOfanEvent(id), HttpStatus.OK);
+    }
+
 }
