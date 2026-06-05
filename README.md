@@ -274,6 +274,17 @@ src/
 
 ---
 
+## 🎬 Making Process
+
+This project was built live and documented as a full walkthrough playlist on YouTube!
+
+> 📺 **Watch the full building process here:**
+> ### 👉 [Hackathon Management System — Full Build Playlist](https://youtube.com/playlist?list=PLiZNjjYgF6SdXB4UAx753-cnfQmvrNeC9&si=61j8FqBBidBiVjwE)
+
+The playlist covers everything from project setup to JPA relationships, JPQL queries, DTO mapping, and more — great if you want to follow along or understand the design decisions behind the code. 🚀
+
+---
+
 ## 🗺️ Roadmap
 
 - [x] User CRUD with partial update (PATCH)
