@@ -37,7 +37,7 @@ A full-featured **RESTful backend** for managing hackathon events — built with
 
 | Layer | Technology |
 |---|---|
-| Framework | Spring Boot 3.x |
+| Framework | Spring Boot 4.x |
 | ORM | Spring Data JPA + Hibernate |
 | Database | PostgreSQL |
 | Mapping | ModelMapper |
